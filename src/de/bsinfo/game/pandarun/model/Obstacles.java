@@ -1,4 +1,4 @@
-package de.bsinfo.game.pandarun.Entity;
+package de.bsinfo.game.pandarun.model;
 
 import de.bsinfo.game.pandarun.gfx.Assets;
 import de.bsinfo.game.pandarun.world.World;

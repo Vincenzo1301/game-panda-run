@@ -1,7 +1,7 @@
 package de.bsinfo.game.pandarun.state;
 
-import de.bsinfo.game.pandarun.Entity.Obstacles;
-import de.bsinfo.game.pandarun.Entity.Player;
+import de.bsinfo.game.pandarun.model.Obstacles;
+import de.bsinfo.game.pandarun.model.Player;
 import de.bsinfo.game.pandarun.code.Game;
 import de.bsinfo.game.pandarun.world.World;
 
