@@ -19,8 +19,8 @@ public class GameState extends State {
         super(game);
 
         world = new World(0, 0, 650, 0);
-        obstacle = new Obstacles(550, World.getGroundForPlayersAndObjects() + 20);
-        player = new Player(game, 50, World.getGroundForPlayersAndObjects());
+        obstacle = new Obstacles(550, World.getWorldGround() + 20);
+        player = new Player(game, 50, World.getWorldGround());
     }
 
     @Override
@@ -42,7 +42,7 @@ public class GameState extends State {
     private static final int GROUND_Y = 285;
     private static int groundForPlayersAndObjects = GROUND_Y - Assets.getAssetsHeight();*/
 
-   /* public static int getGroundForPlayersAndObjects() {
+   /* public static int getWorldGround() {
         return groundForPlayersAndObjects;
     }
 

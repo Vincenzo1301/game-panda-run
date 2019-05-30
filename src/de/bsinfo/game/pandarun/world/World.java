@@ -8,7 +8,7 @@ public class World {
 
     // Sets the ground for the player and obstacle
     private static final int GROUND_Y = 285;
-    private static int groundForPlayersAndObjects = GROUND_Y - Assets.getAssetsHeight();
+    private static int worldGround = GROUND_Y - Assets.getAssetsHeight();
 
     private int backgroundOneX, backgroundOneY, backgroundTwoX, backgroundTwoY;
 
@@ -21,8 +21,8 @@ public class World {
         BackgroundImg.init();
     }
 
-    public static int getGroundForPlayersAndObjects() {
-        return groundForPlayersAndObjects;
+    public static int getWorldGround() {
+        return worldGround;
     }
 
     public static int getGameSpeed() {

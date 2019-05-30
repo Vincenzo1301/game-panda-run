@@ -31,20 +31,23 @@ public class Game implements Runnable {
 
     private Display display;
 
-    private boolean running = false;
-
     private Thread gameThread;
 
-    private BufferStrategy bs;
-    private Graphics g;
+    // The BufferStrategy class represents the mechanism with which to organize complex memory on a particular Canvas or Window.
+    private BufferStrategy bufferStrategy;
+
+    // Represents the paint brush
+    private Graphics graphics;
 
     // State handling of the game
     private StateHandler stateHandler;
     private State gameState;
     private State menuState;
 
-    // Input
+    // Handles the user input
     private KeyManager keyManager;
+
+    private boolean running = false;
 
     public Game() {
         keyManager = new KeyManager();
@@ -66,38 +69,32 @@ public class Game implements Runnable {
     private void update() {
         Objects.requireNonNull(StateHandler.getState());
         StateHandler.getState().update();
-        //  if(State.getState() != null)
-
     }
 
     private void render() {
-        bs = display.getCanvas().getBufferStrategy();
-        if (bs == null) {
+        // Loads the frames in blocks to improve performance.
+        bufferStrategy = display.getCanvas().getBufferStrategy();
+        if (bufferStrategy == null) {
             display.getCanvas().createBufferStrategy(3);
             return;
         }
-        g = bs.getDrawGraphics();
+        graphics = bufferStrategy.getDrawGraphics();
         // Clear Screen
-        g.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+        graphics.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
         // DRAW HERE!
-
-
         if (StateHandler.getState() != null)
-            StateHandler.getState().render(g);
-
-
+            StateHandler.getState().render(graphics);
         // END DRAWING!
 
-        bs.show();
-        g.dispose();
-
+        bufferStrategy.show();
+        graphics.dispose();
     }
 
 
     @Override
     public void run() {
-
+        // TODO Refactor
         init();
 
         // Setting how fast the fps should be for all pc types. Slow or fast pc.
