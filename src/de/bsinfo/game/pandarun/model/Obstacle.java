@@ -5,15 +5,15 @@ import de.bsinfo.game.pandarun.world.World;
 
 import java.awt.*;
 
-public class Obstacles extends GameObject {
+public class Obstacle extends GameObject {
 
-    public Obstacles(float x, float y) {
+    public Obstacle(float x, float y) {
         super(x, y);
     }
 
     @Override
     public void update() {
-        x -= World.getGameSpeed();
+        x -= Score.getGameSpeed();
     }
 
     @Override

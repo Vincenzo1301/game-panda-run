@@ -1,5 +1,6 @@
 package de.bsinfo.game.pandarun.world;
 
+import de.bsinfo.game.pandarun.model.Score;
 import de.bsinfo.game.pandarun.gfx.Assets;
 
 import java.awt.*;
@@ -10,9 +11,9 @@ public class World {
     private static final int GROUND_Y = 285;
     private static int worldGround = GROUND_Y - Assets.getAssetsHeight();
 
-    private int backgroundOneX, backgroundOneY, backgroundTwoX, backgroundTwoY;
+    private double backgroundOneX, backgroundOneY, backgroundTwoX, backgroundTwoY;
 
-    public World(int backgroundOneX, int backgroundOneY, int backgroundTwoX, int backgroundTwoY) {
+    public World(double backgroundOneX, double backgroundOneY, double backgroundTwoX, double backgroundTwoY) {
         this.backgroundOneX = backgroundOneX;
         this.backgroundOneY = backgroundOneY;
         this.backgroundTwoX = backgroundTwoX;
@@ -25,14 +26,10 @@ public class World {
         return worldGround;
     }
 
-    public static int getGameSpeed() {
-        return 2;
-    }
-
     public void update() {
         // Move the x position left for next time
-        backgroundOneX -= getGameSpeed();
-        backgroundTwoX -= getGameSpeed();
+        backgroundOneX -= Score.getGameSpeed();
+        backgroundTwoX -= Score.getGameSpeed();
 
         // Check to see if the image has gone off stage left e.g. 600 * (-1) = -600
         if (backgroundOneX <= -1 * BackgroundImg.backgroundImageOne.getWidth()) {
@@ -47,7 +44,7 @@ public class World {
      * Draw the image onto the Graphics reference
      */
     public void render(Graphics g) {
-        g.drawImage(BackgroundImg.backgroundImageOne, backgroundOneX, backgroundOneY, null);
-        g.drawImage(BackgroundImg.backgroundImageTwo, backgroundTwoX, backgroundTwoY, null);
+        g.drawImage(BackgroundImg.backgroundImageOne, (int) backgroundOneX, (int) backgroundOneY, null);
+        g.drawImage(BackgroundImg.backgroundImageTwo, (int) backgroundTwoX, (int) backgroundTwoY, null);
     }
 }

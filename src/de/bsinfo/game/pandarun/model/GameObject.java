@@ -11,6 +11,14 @@ public abstract class GameObject {
         this.y = y;
     }
 
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
     public abstract void update();
 
     public abstract void render(Graphics g);
