@@ -20,4 +20,14 @@ public class Obstacle extends GameObject {
     public void render(Graphics g) {
         g.drawImage(Assets.stoneObject, (int) x, (int) y, null);
     }
+
+    @Override
+    public boolean intersects(Shape shape) {
+        return shape.intersects((Rectangle)getBounds2D());
+    }
+
+    @Override
+    public Shape getBounds2D() {
+        return new Rectangle((int) x, (int) y, Assets.stoneObject.getWidth(), Assets.stoneObject.getHeight());
+    }
 }

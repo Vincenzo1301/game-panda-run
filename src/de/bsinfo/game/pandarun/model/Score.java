@@ -48,6 +48,17 @@ public class Score extends GameObject {
 
     }
 
+    @Override
+    public boolean intersects(Shape shape) {
+        return false;
+    }
+
+    // TODO This class should not contains the following methods...
+    @Override
+    public Shape getBounds2D() {
+        return null;
+    }
+
     // Returns the gameSpeed to change the values of world and objects
     public static double getGameSpeed() {
         return gameSpeed;

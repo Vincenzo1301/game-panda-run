@@ -22,4 +22,10 @@ public abstract class GameObject {
     public abstract void update();
 
     public abstract void render(Graphics g);
+
+    public abstract boolean intersects(Shape shape);
+
+    public abstract Shape getBounds2D();
+
+
 }

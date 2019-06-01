@@ -96,4 +96,14 @@ public class Player extends GameObject {
             g.drawImage(animationRun.getCurrentFrame(), (int) x, (int) y, null);
         }
     }
+
+    @Override
+    public boolean intersects(Shape shape) {
+        return shape.intersects((Rectangle)getBounds2D());
+    }
+
+    @Override
+    public Shape getBounds2D() {
+        return new Rectangle((int) x, (int) y, 40, 50);
+    }
 }
