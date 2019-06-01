@@ -33,7 +33,7 @@ public class GameState extends State {
     }
 
     private void removeObstacle() {
-        if(obstacleArrayList.get(0).getX() == -80) {
+        if(obstacleArrayList.get(0).getX() == -1) {
             obstacleArrayList.remove(0);
         }
     }
