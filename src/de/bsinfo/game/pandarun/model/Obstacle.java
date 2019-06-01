@@ -13,7 +13,7 @@ public class Obstacle extends GameObject {
 
     @Override
     public void update() {
-        x -= Score.getGameSpeed();
+        x -= 3;
     }
 
     @Override

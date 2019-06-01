@@ -1,6 +1,5 @@
 package de.bsinfo.game.pandarun.world;
 
-import de.bsinfo.game.pandarun.model.Score;
 import de.bsinfo.game.pandarun.gfx.Assets;
 
 import java.awt.*;
@@ -11,13 +10,15 @@ public class World {
     private static final int GROUND_Y = 285;
     private static int worldGround = GROUND_Y - Assets.getAssetsHeight();
 
-    private double backgroundOneX, backgroundOneY, backgroundTwoX, backgroundTwoY;
+    private double backgroundOneFirstLayerX, backgroundOneSecondlayerX, backgroundTwoFirstLayerX, backGroundTwoSecondLayerX, backgroundY;
 
-    public World(double backgroundOneX, double backgroundOneY, double backgroundTwoX, double backgroundTwoY) {
-        this.backgroundOneX = backgroundOneX;
-        this.backgroundOneY = backgroundOneY;
-        this.backgroundTwoX = backgroundTwoX;
-        this.backgroundTwoY = backgroundTwoY;
+    public World(double backgroundOneFirstLayerX, double backgroundOneSecondlayerX, double backgroundTwoFirstLayerX,
+                 double backGroundTwoSecondLayerX, double backgroundY) {
+        this.backgroundOneFirstLayerX = backgroundOneFirstLayerX;
+        this.backgroundOneSecondlayerX = backgroundOneSecondlayerX;
+        this.backgroundTwoFirstLayerX = backgroundTwoFirstLayerX;
+        this.backGroundTwoSecondLayerX = backGroundTwoSecondLayerX;
+        this.backgroundY = backgroundY;
 
         BackgroundImg.init();
     }
@@ -28,15 +29,25 @@ public class World {
 
     public void update() {
         // Move the x position left for next time
-        backgroundOneX -= Score.getGameSpeed();
-        backgroundTwoX -= Score.getGameSpeed();
+        backgroundOneFirstLayerX -= 4;
+        backgroundTwoFirstLayerX -= 4;
+
+        backgroundOneSecondlayerX -= 2;
+        backGroundTwoSecondLayerX -= 2;
 
         // Check to see if the image has gone off stage left e.g. 600 * (-1) = -600
-        if (backgroundOneX <= -1 * BackgroundImg.backgroundImageOne.getWidth()) {
-            backgroundOneX = backgroundOneX + BackgroundImg.backgroundImageOne.getWidth() * 2;
+        if (backgroundOneFirstLayerX <= -1 * BackgroundImg.backgroundImageOneFirstLayer.getWidth()) {
+            backgroundOneFirstLayerX = backgroundOneFirstLayerX + BackgroundImg.backgroundImageOneFirstLayer.getWidth() * 2;
         }
-        if (backgroundTwoX <= -1 * BackgroundImg.backgroundImageTwo.getWidth()) {
-            backgroundTwoX = backgroundTwoX + BackgroundImg.backgroundImageTwo.getWidth() * 2;
+        if (backgroundTwoFirstLayerX <= -1 * BackgroundImg.backgroundImageTwoFirstLayer.getWidth()) {
+            backgroundTwoFirstLayerX = backgroundTwoFirstLayerX + BackgroundImg.backgroundImageTwoFirstLayer.getWidth() * 2;
+        }
+
+        if (backgroundOneSecondlayerX <= -1 * BackgroundImg.backgroundImageOneSecondLayer.getWidth()) {
+            backgroundOneSecondlayerX = backgroundOneSecondlayerX + BackgroundImg.backgroundImageOneSecondLayer.getWidth() * 2;
+        }
+        if (backGroundTwoSecondLayerX <= -1 * BackgroundImg.backgroundImageTwoSecondLayer.getWidth()) {
+            backGroundTwoSecondLayerX = backGroundTwoSecondLayerX + BackgroundImg.backgroundImageTwoSecondLayer.getWidth() * 2;
         }
     }
 
@@ -44,7 +55,10 @@ public class World {
      * Draw the image onto the Graphics reference
      */
     public void render(Graphics g) {
-        g.drawImage(BackgroundImg.backgroundImageOne, (int) backgroundOneX, (int) backgroundOneY, null);
-        g.drawImage(BackgroundImg.backgroundImageTwo, (int) backgroundTwoX, (int) backgroundTwoY, null);
+        g.drawImage(BackgroundImg.backgroundImageOneSecondLayer, (int) backgroundOneSecondlayerX, (int) backgroundY, null);
+        g.drawImage(BackgroundImg.backgroundImageTwoSecondLayer, (int) backGroundTwoSecondLayerX, (int) backgroundY, null);
+
+        g.drawImage(BackgroundImg.backgroundImageOneFirstLayer, (int) backgroundOneFirstLayerX, (int) backgroundY, null);
+        g.drawImage(BackgroundImg.backgroundImageTwoFirstLayer, (int) backgroundTwoFirstLayerX, (int) backgroundY, null);
     }
 }

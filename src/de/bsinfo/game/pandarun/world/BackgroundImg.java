@@ -6,10 +6,14 @@ import java.awt.image.BufferedImage;
 
 class BackgroundImg {
 
-    static BufferedImage backgroundImageOne, backgroundImageTwo;
+    static BufferedImage backgroundImageOneFirstLayer, backgroundImageTwoFirstLayer, backgroundImageTwoSecondLayer, backgroundImageOneSecondLayer;
 
     static void init(){
-        backgroundImageOne = ImageLoader.loadImage("/textures/scaledBackground.png");
-        backgroundImageTwo = ImageLoader.loadImage("/textures/scaledBackground.png");
+        backgroundImageOneFirstLayer = ImageLoader.loadImage("/textures/backgroundFirstLayer.png");
+        backgroundImageTwoFirstLayer = ImageLoader.loadImage("/textures/backgroundFirstLayer.png");
+
+        backgroundImageOneSecondLayer = ImageLoader.loadImage("/textures/DarkerbackgroundSecondLayer.png");
+        backgroundImageTwoSecondLayer = ImageLoader.loadImage("/textures/DarkerbackgroundSecondLayer.png");
+
     }
 }

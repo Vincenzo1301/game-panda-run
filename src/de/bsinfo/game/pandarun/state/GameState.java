@@ -21,7 +21,7 @@ public class GameState extends State {
     public GameState(Game game) {
         super(game);
 
-        world = new World(0, 0, 650, 0);
+        world = new World(0, 0, 650, 650, 0);
 
         obstacleArrayList = new ArrayList<>();
         obstacle = new Obstacle(650, World.getWorldGround() + 20);
