@@ -5,7 +5,7 @@ import de.bsinfo.game.pandarun.code.Game;
 /**
  * Launcher class
  *
- * Date: 06.05.2019
+ * Date: 03.05.2019
  * Authors: Kevin Zagar & Vincenzo Auricchio
  */
 public class Launcher {
