@@ -1,5 +1,6 @@
 package de.bsinfo.game.pandarun.model;
 
+import de.bsinfo.game.pandarun.Score.Score;
 import de.bsinfo.game.pandarun.gfx.Assets;
 import de.bsinfo.game.pandarun.world.World;
 
@@ -13,7 +14,7 @@ public class Obstacles extends GameObject {
 
     @Override
     public void update() {
-        x -= World.getGameSpeed();
+        x -= Score.getGameSpeed();
     }
 
     @Override

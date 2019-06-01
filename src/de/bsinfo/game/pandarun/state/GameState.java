@@ -1,5 +1,6 @@
 package de.bsinfo.game.pandarun.state;
 
+import de.bsinfo.game.pandarun.Score.Score;
 import de.bsinfo.game.pandarun.model.Obstacles;
 import de.bsinfo.game.pandarun.model.Player;
 import de.bsinfo.game.pandarun.code.Game;
@@ -9,11 +10,10 @@ import java.awt.*;
 
 public class GameState extends State {
 
-
-
     private Player player;
     private World world;
     private Obstacles obstacle;
+    private Score score;
 
     public GameState(Game game) {
         super(game);
@@ -21,6 +21,7 @@ public class GameState extends State {
         world = new World(0, 0, 650, 0);
         obstacle = new Obstacles(550, World.getWorldGround() + 20);
         player = new Player(game, 50, World.getWorldGround());
+        score = new Score(580, 40, 0);
     }
 
     @Override
@@ -28,6 +29,7 @@ public class GameState extends State {
         player.update();
         world.update();
         obstacle.update();
+        score.update();
     }
 
     @Override
@@ -35,6 +37,7 @@ public class GameState extends State {
         world.render(g);
         obstacle.render(g);
         player.render(g);
+        score.render(g);
     }
 
 
