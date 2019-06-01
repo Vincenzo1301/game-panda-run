@@ -1,6 +1,6 @@
 package de.bsinfo.game.pandarun.state;
 
-import de.bsinfo.game.pandarun.Score.Score;
+import de.bsinfo.game.pandarun.model.Score;
 import de.bsinfo.game.pandarun.model.Obstacles;
 import de.bsinfo.game.pandarun.model.Player;
 import de.bsinfo.game.pandarun.code.Game;

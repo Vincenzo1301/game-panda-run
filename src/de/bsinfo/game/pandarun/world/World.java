@@ -1,6 +1,6 @@
 package de.bsinfo.game.pandarun.world;
 
-import de.bsinfo.game.pandarun.Score.Score;
+import de.bsinfo.game.pandarun.model.Score;
 import de.bsinfo.game.pandarun.gfx.Assets;
 
 import java.awt.*;
