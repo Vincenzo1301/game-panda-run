@@ -32,8 +32,6 @@ public class GameState extends State {
     }
 
     private void generateObstacle() {
-
-        System.out.println("X-Wert " + obstacleArrayList.get(obstacleArrayList.size() - 1).getX());
         if (obstacleArrayList.get(obstacleArrayList.size() - 1).getX() <= 350) {
             obstacleArrayList.add(new Obstacle(650, World.getWorldGround() + 20));
         }
