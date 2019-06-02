@@ -9,6 +9,7 @@ import de.bsinfo.game.pandarun.world.World;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameState extends State {
 
@@ -33,7 +34,10 @@ public class GameState extends State {
 
     private void generateObstacle() {
         if (obstacleArrayList.get(obstacleArrayList.size() - 1).getX() <= 350) {
-            obstacleArrayList.add(new Obstacle(650, World.getWorldGround() + 20));
+
+            double randomNumber = (Math.random()*((1000-650)+1))+650;
+
+            obstacleArrayList.add(new Obstacle((int)randomNumber, World.getWorldGround() + 20));
         }
     }
 
@@ -51,9 +55,10 @@ public class GameState extends State {
         generateObstacle();
         for (Obstacle obstacle : obstacleArrayList) {
             obstacle.update();
+            // Check collision
             if (player.intersects(obstacle.getBounds2D())) {
                 score.setScore(0);
-                Score.setGameSpeed(2);
+                Score.setGameSpeed(3);
                 game.restartGame();
             }
         }

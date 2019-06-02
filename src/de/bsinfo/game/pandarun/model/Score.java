@@ -6,7 +6,7 @@ public class Score extends GameObject {
 
     private long score;
     private int scoreRepeater = 0;
-    private static double gameSpeed = 2;
+    private static double gameSpeed = 3;
     private boolean isOver = false;
 
     public Score(float x, float y, long score) {
@@ -29,8 +29,8 @@ public class Score extends GameObject {
         if (isOver) {
             gameSpeed += 0.2;
             isOver = false;
-            if (gameSpeed >= 5) {
-                gameSpeed = 5;
+            if (gameSpeed >= 6) {
+                gameSpeed = 6;
             }
         }
     }
