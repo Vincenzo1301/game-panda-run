@@ -15,7 +15,7 @@ public class Assets {
     public static BufferedImage[] playerRunArray;
     public static BufferedImage playerJumping;
     public static BufferedImage stoneObject;
-    //public static BufferedImage trunkObject;
+    public static BufferedImage trunkObject;
 
     public static int getAssetsHeight() {
         return ASSETS_HEIGHT;
@@ -34,6 +34,6 @@ public class Assets {
 
         playerJumping = sheet.crop(0, ASSETS_HEIGHT, ASSETS_WIDTH, ASSETS_HEIGHT);
         stoneObject = sheet.crop(0, ASSETS_HEIGHT * 2, OBSTACLE_WIDTH, ASSETS_HEIGHT);
-        //trunkObject = sheet.crop()
+        trunkObject = sheet.crop(0, ASSETS_HEIGHT * 4, 50, ASSETS_HEIGHT);
     }
 }
