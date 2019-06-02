@@ -104,6 +104,6 @@ public class Player extends GameObject {
 
     @Override
     public Shape getBounds2D() {
-        return new Rectangle((int) x, (int) y, 40, 50);
+        return new Rectangle((int) x, (int) y, 21, 21);
     }
 }

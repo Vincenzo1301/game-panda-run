@@ -28,6 +28,6 @@ public class Obstacle extends GameObject {
 
     @Override
     public Shape getBounds2D() {
-        return new Rectangle((int) x, (int) y, Assets.stoneObject.getWidth(), Assets.stoneObject.getHeight());
+        return new Rectangle((int) x + 10, (int) y, 40, 50);
     }
 }

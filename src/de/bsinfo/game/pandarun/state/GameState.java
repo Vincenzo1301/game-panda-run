@@ -52,7 +52,8 @@ public class GameState extends State {
         for (Obstacle obstacle : obstacleArrayList) {
             obstacle.update();
             if (player.intersects(obstacle.getBounds2D())) {
-                System.out.println("Spiel vorbei");
+                score.setScore(0);
+                game.restartGame();
             }
         }
         score.update();

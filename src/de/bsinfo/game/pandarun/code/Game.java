@@ -51,10 +51,10 @@ public class Game implements Runnable {
 
     public Game() {
         keyManager = new KeyManager();
+        display = new Display(GAME_TITLE, GAME_WIDTH, GAME_HEIGHT);
     }
 
     private void init() {
-        display = new Display(GAME_TITLE, GAME_WIDTH, GAME_HEIGHT);
         display.getFrame().addKeyListener(keyManager);
 
         // Init sprite sheets
@@ -94,7 +94,7 @@ public class Game implements Runnable {
 
     @Override
     public void run() {
-        // TODO Refactor
+        // TODO Refactor the method
         init();
 
         // Setting how fast the fps should be for all pc types. Slow or fast pc.
@@ -134,6 +134,10 @@ public class Game implements Runnable {
         return keyManager;
     }
 
+    public void restartGame() {
+        init();
+    }
+
     /*
     All other threads attempting to enter the synchronized block are blocked
     until the gameThread inside the synchronized block exits the block.
@@ -144,6 +148,7 @@ public class Game implements Runnable {
             return;
         }
         running = true;
+        init();
         gameThread = new Thread(this);
         gameThread.start();
     }
@@ -159,6 +164,5 @@ public class Game implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 }
