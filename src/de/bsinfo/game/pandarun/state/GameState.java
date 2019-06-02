@@ -53,6 +53,7 @@ public class GameState extends State {
             obstacle.update();
             if (player.intersects(obstacle.getBounds2D())) {
                 score.setScore(0);
+                Score.setGameSpeed(2);
                 game.restartGame();
             }
         }

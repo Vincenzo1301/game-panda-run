@@ -14,6 +14,10 @@ public class Score extends GameObject {
         this.score = score;
     }
 
+    public static void setGameSpeed(double gameSpeed) {
+        Score.gameSpeed = gameSpeed;
+    }
+
     private void scoreRepeaterCap() {
         if (scoreRepeater == 150) {
             scoreRepeater = 0;

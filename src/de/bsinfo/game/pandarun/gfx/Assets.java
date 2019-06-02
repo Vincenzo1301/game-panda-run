@@ -15,6 +15,7 @@ public class Assets {
     public static BufferedImage[] playerRunArray;
     public static BufferedImage playerJumping;
     public static BufferedImage stoneObject;
+    //public static BufferedImage trunkObject;
 
     public static int getAssetsHeight() {
         return ASSETS_HEIGHT;
@@ -24,7 +25,7 @@ public class Assets {
      * Initiation of the sprite sheets
      */
     public static void init() {
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/new-pixilart.png"));
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/new-pixelart.png"));
 
         playerRunArray = new BufferedImage[3];
         playerRunArray[0] = sheet.crop(0, 0, ASSETS_WIDTH, ASSETS_HEIGHT);
@@ -33,5 +34,6 @@ public class Assets {
 
         playerJumping = sheet.crop(0, ASSETS_HEIGHT, ASSETS_WIDTH, ASSETS_HEIGHT);
         stoneObject = sheet.crop(0, ASSETS_HEIGHT * 2, OBSTACLE_WIDTH, ASSETS_HEIGHT);
+        //trunkObject = sheet.crop()
     }
 }
